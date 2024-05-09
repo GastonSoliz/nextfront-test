@@ -1,10 +1,34 @@
+import CardFilm from "@/components/CardFilm";
+import Link from "next/link";
 import React from "react";
 
-export default function FilmsPage() {
+// export async function getStaticProps() {
+//   const data = await fetch("https://swapi.dev/api/films");
+//   const films = await data.json();
+
+//   console.log(films);
+
+//   return {
+//     props: {},
+//   };
+// }
+
+export default async function FilmsPage() {
+  const staticData = await fetch("https://swapi.dev/api/films");
+  const films = await staticData.json();
+
+  //console.log(films.results);
+
   return (
-    <div>
+    <>
+      <Link href="/characters">
+        <p>FILMS</p>
+      </Link>
       <h1>Página de Películas</h1>
-      {/* Aquí puedes agregar el contenido de tu página */}
-    </div>
+
+      {films.results.map((film) => (
+        <CardFilm film={film} />
+      ))}
+    </>
   );
 }
