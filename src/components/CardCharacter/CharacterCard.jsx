@@ -13,8 +13,12 @@ export default function CharacterCard({ ch }) {
         width={100}
         height={100}
       />
-      <p>{ch.eye_color}</p>
-      <p>{ch.gender}</p>
+      {ch.eye_color === "n/a" || ch.eye_color === "unknown" ? null : (
+        <p>{ch.eye_color}</p>
+      )}
+      {ch.gender === "n/a" || ch.eye_color === "unknown" ? null : (
+        <p>{ch.gender}</p>
+      )}
     </Link>
   );
 }
