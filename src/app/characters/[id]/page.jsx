@@ -15,12 +15,30 @@ export default async function Character({ params }) {
         width={100}
         height={100}
       />
-      <p>{infoCharacter.eye_color}</p>
-      <p>{infoCharacter.birth_year}</p>
-      <p>{infoCharacter.hair_color}</p>
-      <p>{infoCharacter.height}</p>
-      <p>{infoCharacter.skin_color}</p>
-      <p>{infoCharacter.mass}</p>
+      {infoCharacter.eye_color === "n/a" ||
+      infoCharacter.eye_color === "unknown" ? null : (
+        <p>Eye color: {infoCharacter.eye_color}</p>
+      )}
+      {infoCharacter.birth_year === "n/a" ||
+      infoCharacter.birth_year === "unknown" ? null : (
+        <p>Birth year: {infoCharacter.birth_year}</p>
+      )}
+      {infoCharacter.hair_color === "n/a" ||
+      infoCharacter.hair_color === "unknown" ? null : (
+        <p>Hair color: {infoCharacter.hair_color}</p>
+      )}
+      {infoCharacter.height === "n/a" ||
+      infoCharacter.height === "unknown" ? null : (
+        <p>Height: {infoCharacter.height}</p>
+      )}
+      {infoCharacter.skin_color === "n/a" ||
+      infoCharacter.skin_color === "unknown" ? null : (
+        <p>Skin color: {infoCharacter.skin_color}</p>
+      )}
+      {infoCharacter.mass === "n/a" ||
+      infoCharacter.mass === "unknown" ? null : (
+        <p>Mass: {infoCharacter.mass}</p>
+      )}
     </>
   );
 }
