@@ -1,12 +1,22 @@
-import CharacterCard from "@/components/CardCharacter/CharacterCard";
+import CharactersList from "@/components/CharactersList/CharactersList";
 import Link from "next/link";
 import React from "react";
 
 export default async function CharactersPage() {
-  const staticData = await fetch("https://swapi.dev/api/people");
-  const characters = await staticData.json();
+  const staticData = await fetch(`https://swapi.dev/api/people/?page=1`);
+  const data = await staticData.json();
+  const characters = data.results;
 
-  //console.log(characters.results);
+  const filterG = characters
+    .filter((ch) => ch.gender !== "n/a" && ch.gender !== "unknown")
+    .map((ch) => ch.gender);
+  const filterE = characters
+    .filter((ch) => ch.eye_color !== "n/a" && ch.eye_color !== "unknown")
+    .map((ch) => ch.eye_color);
+
+  const genreA = Array.from(new Set(filterG));
+
+  const eyesA = Array.from(new Set(filterE));
 
   return (
     <>
@@ -14,9 +24,11 @@ export default async function CharactersPage() {
         <p>FILMS</p>
       </Link>
       <h1>PAGINA PERSONAJES</h1>
-      {characters.results.map((ch) => (
-        <CharacterCard ch={ch} />
-      ))}
+      <CharactersList
+        characters={characters}
+        genres={genreA}
+        eyesColors={eyesA}
+      />
     </>
   );
 }
