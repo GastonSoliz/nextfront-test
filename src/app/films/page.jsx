@@ -1,5 +1,4 @@
 import CardFilm from "@/components/CardFilm/FilmCard";
-import Link from "next/link";
 import React from "react";
 
 export default async function FilmsPage() {
@@ -8,13 +7,10 @@ export default async function FilmsPage() {
 
   return (
     <>
-      <Link href="/characters">
-        <p>Personajes</p>
-      </Link>
       <h1>Página de Películas</h1>
 
       {films.results.map((film) => (
-        <CardFilm film={film} />
+        <CardFilm film={film} key={film.episode_id} />
       ))}
     </>
   );
