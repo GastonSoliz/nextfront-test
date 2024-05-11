@@ -1,5 +1,4 @@
 import CharactersList from "@/components/CharactersList/CharactersList";
-import Link from "next/link";
 import React from "react";
 
 export default async function CharactersPage() {
@@ -20,9 +19,6 @@ export default async function CharactersPage() {
 
   return (
     <>
-      <Link href="/films">
-        <p>FILMS</p>
-      </Link>
       <h1>PAGINA PERSONAJES</h1>
       <CharactersList
         characters={characters}
