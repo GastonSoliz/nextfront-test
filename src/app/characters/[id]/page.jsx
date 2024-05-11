@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Character({ params }) {
   const staticData = await fetch(`https://swapi.dev/api/people/${params.id}`);
@@ -7,7 +6,6 @@ export default async function Character({ params }) {
 
   return (
     <>
-      <Link href={`/characters`}>Characters</Link>
       <h1>{infoCharacter.name}</h1>
       <Image
         src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
