@@ -14,8 +14,8 @@ export default async function Film({ params }) {
         </p>
         <div className="h-full flex items-center">
           <Image
-            src="https://static.wikia.nocookie.net/starwars/images/c/cc/Star-wars-logo-new-tall.jpg/revision/latest?cb=20190313021755"
-            alt="Generic Image"
+            src="/Generic_Film.webp"
+            alt="Generic Film Image"
             width={300}
             height={300}
           />

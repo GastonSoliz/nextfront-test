@@ -9,11 +9,12 @@ export default function Home() {
   return (
     <main className="flex flex-col justify-center items-center h-screen bg-neutral-950">
       <p className="font-semibold text-white py-4 text-lg">
-        Descubre informacion sobre las peliculas y los personajes de
-        <span className="text-current text-xl"> STAR WARS</span>
+        Discover information about the{" "}
+        <span className="text-current text-xl"> STAR WARS</span> films and
+        characters
       </p>
       <p className="font-semibold text-white pb-6 text-lg">
-        Comienza tu camino eligiendo que quieres descubrir:{" "}
+        Start you path by choosing what you want to discover:
       </p>
       <ul className="flex space-x-4">
         {links.map((link) => {
