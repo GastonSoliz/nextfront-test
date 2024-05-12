@@ -15,7 +15,7 @@ export default async function CharactersPage() {
     .map((ch) => ch.gender);
   const filterE = characters
     .filter((ch) => ch.eye_color !== "n/a" && ch.eye_color !== "unknown")
-    .map((ch) => ch.eye_color);
+    .flatMap((ch) => ch.eye_color.split(",").map((color) => color.trim()));
 
   const genreA = Array.from(new Set(filterG));
 

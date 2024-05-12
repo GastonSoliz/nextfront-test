@@ -25,7 +25,16 @@ export default function CharactersList({ characters, genres, eyesColors }) {
   function handlerEyes(e) {
     const color = e.target.value;
     if (color === "") setChFiltered(characters);
-    else setChFiltered(characters.filter((ch) => color == ch.eye_color));
+    else
+      setChFiltered(
+        characters.filter((ch) => {
+          if (ch.eye_color !== "n/a" && ch.eye_color !== "unknown") {
+            const colors = ch.eye_color.split(",").map((color) => color.trim());
+            return colors.includes(color);
+          }
+          return false;
+        })
+      );
     setCurrentPage(1);
   }
 
