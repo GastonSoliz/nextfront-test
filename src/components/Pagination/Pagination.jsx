@@ -14,14 +14,33 @@ export default function Pagination({
   }
 
   return (
-    <>
-      {currentPage === 1 ? null : <button onClick={prevPage}>{"<"}</button>}
+    <div className="flex justify-center py-8 space-x-2">
+      {currentPage === 1 ? null : (
+        <button
+          onClick={prevPage}
+          className="rounded-md px-3 py-1 bg-gray-200 font-semibold hover:bg-neutral-600"
+        >
+          {"<"}
+        </button>
+      )}
       {pageNumbers.map((pageNumber) => (
-        <button onClick={() => selectPage(pageNumber)}>{pageNumber}</button>
+        <button
+          className={`rounded-md px-3 py-1 hover:bg-neutral-600 ${
+            currentPage === pageNumber ? "bg-neutral-600" : "bg-gray-200"
+          }`}
+          onClick={() => selectPage(pageNumber)}
+        >
+          {pageNumber}
+        </button>
       ))}
       {currentPage === totalPages ? null : (
-        <button onClick={nextPage}>{">"}</button>
+        <button
+          onClick={nextPage}
+          className="rounded-md px-3 py-1 bg-gray-200 font-semibold hover:bg-neutral-600"
+        >
+          {">"}
+        </button>
       )}
-    </>
+    </div>
   );
 }

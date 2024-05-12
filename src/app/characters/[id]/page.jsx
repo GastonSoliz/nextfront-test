@@ -5,38 +5,79 @@ export default async function Character({ params }) {
   const infoCharacter = await staticData.json();
 
   return (
-    <>
-      <h1>{infoCharacter.name}</h1>
-      <Image
-        src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
-        alt="Generic Image"
-        width={100}
-        height={100}
-      />
-      {infoCharacter.eye_color === "n/a" ||
-      infoCharacter.eye_color === "unknown" ? null : (
-        <p>Eye color: {infoCharacter.eye_color}</p>
-      )}
-      {infoCharacter.birth_year === "n/a" ||
-      infoCharacter.birth_year === "unknown" ? null : (
-        <p>Birth year: {infoCharacter.birth_year}</p>
-      )}
-      {infoCharacter.hair_color === "n/a" ||
-      infoCharacter.hair_color === "unknown" ? null : (
-        <p>Hair color: {infoCharacter.hair_color}</p>
-      )}
-      {infoCharacter.height === "n/a" ||
-      infoCharacter.height === "unknown" ? null : (
-        <p>Height: {infoCharacter.height}</p>
-      )}
-      {infoCharacter.skin_color === "n/a" ||
-      infoCharacter.skin_color === "unknown" ? null : (
-        <p>Skin color: {infoCharacter.skin_color}</p>
-      )}
-      {infoCharacter.mass === "n/a" ||
-      infoCharacter.mass === "unknown" ? null : (
-        <p>Mass: {infoCharacter.mass}</p>
-      )}
-    </>
+    <div className="h-screen bg-neutral-950 flex justify-center items-center">
+      <div className="bg-slate-800 w-7/12 h-4/6 flex justify-center align-items rounded-md">
+        <div className="h-full w-5/12  flex items-center">
+          <Image
+            src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
+            alt="Generic Image"
+            width={600}
+            height={600}
+          />
+        </div>
+        <div className="h-full w-4/12 flex justify-center items-center flex-col ">
+          <p className="my-6 text-current font-semibold text-lg">
+            Name:
+            <span className="text-xl px-2 text-gray-300">
+              {infoCharacter.name}
+            </span>
+          </p>
+          {infoCharacter.eye_color === "n/a" ||
+          infoCharacter.eye_color === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Eye color:
+              <span className="text-3x1 px-2 text-gray-300">
+                {infoCharacter.eye_color}
+              </span>
+            </p>
+          )}
+          {infoCharacter.birth_year === "n/a" ||
+          infoCharacter.birth_year === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Birth year:
+              <span className="text-lg px-2 text-gray-300">
+                {infoCharacter.birth_year}
+              </span>
+            </p>
+          )}
+          {infoCharacter.hair_color === "n/a" ||
+          infoCharacter.hair_color === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Hair color:
+              <span className="text-lg px-2 text-gray-300">
+                {infoCharacter.hair_color}
+              </span>
+            </p>
+          )}
+          {infoCharacter.height === "n/a" ||
+          infoCharacter.height === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Height:
+              <span className="text-lg px-2 text-gray-300">
+                {infoCharacter.height}
+              </span>
+            </p>
+          )}
+          {infoCharacter.skin_color === "n/a" ||
+          infoCharacter.skin_color === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Skin color:
+              <span className="text-lg px-2 text-gray-300">
+                {infoCharacter.skin_color}
+              </span>
+            </p>
+          )}
+          {infoCharacter.mass === "n/a" ||
+          infoCharacter.mass === "unknown" ? null : (
+            <p className="my-6 text-current font-semibold text-lg">
+              Mass:
+              <span className="text-lg px-2 text-gray-300">
+                {infoCharacter.mass}
+              </span>
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

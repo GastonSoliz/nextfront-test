@@ -9,7 +9,7 @@ export default function CharactersList({ characters, genres, eyesColors }) {
   const [chFiltered, setChFiltered] = useState(characters);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const chPerPage = 2;
+  const chPerPage = 10;
   const totalPages = Math.ceil(chFiltered.length / chPerPage);
   const startIndex = (currentPage - 1) * chPerPage;
   const endIndex = startIndex + chPerPage;
@@ -49,9 +49,11 @@ export default function CharactersList({ characters, genres, eyesColors }) {
         handlerGenre={handlerGenre}
         handlerEyes={handlerEyes}
       />
-      {chFilteredPag.map((ch) => (
-        <CharacterCard ch={ch} key={ch.name} />
-      ))}
+      <div className="grid-cols-4 grid gap-6">
+        {chFilteredPag.map((ch) => (
+          <CharacterCard ch={ch} key={ch.name} />
+        ))}
+      </div>
       <Pagination
         currentPage={currentPage}
         prevPage={prevPage}

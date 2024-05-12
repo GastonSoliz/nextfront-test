@@ -8,14 +8,21 @@ export default async function FilmCharacter({ url }) {
   const id = url.match(/\/(\d+)\/$/)[1];
 
   return (
-    <Link href={`/characters/${id}`}>
-      <p>{infoCh.name}</p>
-      <Image
-        src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
-        alt="Generic Image"
-        width={100}
-        height={100}
-      />
-    </Link>
+    <div className="flex flex-col bg-slate-600  w-11/12 h-40 px-2 items-center rounded-md hover:bg-gray-200 ">
+      <Link href={`/characters/${id}`}>
+        <p className="my-2 text-current font-semibold text-sm">
+          Name:
+          <span className="text-base px-2 text-gray-400">{infoCh.name}</span>
+        </p>
+        <div>
+          <Image
+            src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
+            alt="Generic Image"
+            width={200}
+            height={200}
+          />
+        </div>
+      </Link>
+    </div>
   );
 }

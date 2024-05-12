@@ -8,8 +8,11 @@ export default function Filters({
   handlerEyes,
 }) {
   return (
-    <>
-      <select onChange={handlerGenre}>
+    <div className="flex space-x-6 justify-center items-center py-6">
+      <select
+        onChange={handlerGenre}
+        className="bg-gray-200 rounded-md px-2 py-2 cursor-pointer"
+      >
         <option value="">Select Genre</option>
         {genres.map((genre) => (
           <option value={genre} key={genre}>
@@ -17,7 +20,10 @@ export default function Filters({
           </option>
         ))}
       </select>
-      <select onChange={handlerEyes}>
+      <select
+        onChange={handlerEyes}
+        className="bg-gray-200 rounded-md px-2 py-2 cursor-pointer"
+      >
         <option value="">Select Eyes Color</option>
         {eyesColors.map((color) => (
           <option value={color} key={color}>
@@ -25,7 +31,6 @@ export default function Filters({
           </option>
         ))}
       </select>
-      <button>Clear</button>
-    </>
+    </div>
   );
 }

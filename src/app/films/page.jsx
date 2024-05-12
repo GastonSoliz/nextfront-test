@@ -6,12 +6,10 @@ export default async function FilmsPage() {
   const films = await staticData.json();
 
   return (
-    <>
-      <h1>Página de Películas</h1>
-
+    <div className="grid grid-cols-3 bg-neutral-950 h-screen pt-20 justify-items-center">
       {films.results.map((film) => (
         <CardFilm film={film} key={film.episode_id} />
       ))}
-    </>
+    </div>
   );
 }
