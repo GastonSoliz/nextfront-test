@@ -1,10 +1,14 @@
 import CharactersList from "@/components/CharactersList/CharactersList";
-import React from "react";
 
 export default async function CharactersPage() {
-  const staticData = await fetch(`https://swapi.dev/api/people/?page=1`);
-  const data = await staticData.json();
-  const characters = data.results;
+  const characters = [];
+  for (let i = 1; i <= 9; i++) {
+    const staticData = await fetch(`https://swapi.dev/api/people/?page=${i}`);
+    const data = await staticData.json();
+    for (let o = 0; o < data.results.length; o++) {
+      characters.push(data.results[o]);
+    }
+  }
 
   const filterG = characters
     .filter((ch) => ch.gender !== "n/a" && ch.gender !== "unknown")
@@ -18,13 +22,12 @@ export default async function CharactersPage() {
   const eyesA = Array.from(new Set(filterE));
 
   return (
-    <>
-      <h1>PAGINA PERSONAJES</h1>
+    <div className="h-full bg-neutral-950 px-12 pt-16">
       <CharactersList
         characters={characters}
         genres={genreA}
         eyesColors={eyesA}
       />
-    </>
+    </div>
   );
 }
