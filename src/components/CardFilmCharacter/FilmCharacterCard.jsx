@@ -16,8 +16,8 @@ export default async function FilmCharacter({ url }) {
         </p>
         <div>
           <Image
-            src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
-            alt="Generic Image"
+            src="/Generic_Character.jpg"
+            alt="Generic Character Image"
             width={200}
             height={200}
           />

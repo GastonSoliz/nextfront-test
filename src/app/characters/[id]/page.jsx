@@ -9,14 +9,14 @@ export default async function Character({ params }) {
       <div className="bg-slate-800 w-7/12 h-4/6 flex justify-center align-items rounded-md">
         <div className="h-full w-5/12  flex items-center">
           <Image
-            src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
-            alt="Generic Image"
+            src="/Generic_Character.jpg"
+            alt="Generic Character Image"
             width={600}
             height={600}
           />
         </div>
-        <div className="h-full w-4/12 flex justify-center items-center flex-col ">
-          <p className="my-6 text-current font-semibold text-lg">
+        <div className="w-4/12 flex justify-center items-center flex-col">
+          <p className="my-4 text-current font-semibold text-lg">
             Name:
             <span className="text-xl px-2 text-gray-300">
               {infoCharacter.name}
@@ -24,7 +24,7 @@ export default async function Character({ params }) {
           </p>
           {infoCharacter.eye_color === "n/a" ||
           infoCharacter.eye_color === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Eye color:
               <span className="text-3x1 px-2 text-gray-300">
                 {infoCharacter.eye_color}
@@ -33,7 +33,7 @@ export default async function Character({ params }) {
           )}
           {infoCharacter.birth_year === "n/a" ||
           infoCharacter.birth_year === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Birth year:
               <span className="text-lg px-2 text-gray-300">
                 {infoCharacter.birth_year}
@@ -42,7 +42,7 @@ export default async function Character({ params }) {
           )}
           {infoCharacter.hair_color === "n/a" ||
           infoCharacter.hair_color === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Hair color:
               <span className="text-lg px-2 text-gray-300">
                 {infoCharacter.hair_color}
@@ -51,7 +51,7 @@ export default async function Character({ params }) {
           )}
           {infoCharacter.height === "n/a" ||
           infoCharacter.height === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Height:
               <span className="text-lg px-2 text-gray-300">
                 {infoCharacter.height}
@@ -60,7 +60,7 @@ export default async function Character({ params }) {
           )}
           {infoCharacter.skin_color === "n/a" ||
           infoCharacter.skin_color === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Skin color:
               <span className="text-lg px-2 text-gray-300">
                 {infoCharacter.skin_color}
@@ -69,7 +69,7 @@ export default async function Character({ params }) {
           )}
           {infoCharacter.mass === "n/a" ||
           infoCharacter.mass === "unknown" ? null : (
-            <p className="my-6 text-current font-semibold text-lg">
+            <p className="my-4 text-current font-semibold text-lg">
               Mass:
               <span className="text-lg px-2 text-gray-300">
                 {infoCharacter.mass}

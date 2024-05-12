@@ -11,8 +11,8 @@ export default function CharacterCard({ ch }) {
           Name: <span className="text-lg px-2 text-gray-300">{ch.name}</span>
         </p>
         <Image
-          src="https://hips.hearstapps.com/hmg-prod/images/star-wars-characters-ranked-1577122930.jpg"
-          alt="Character Image"
+          src="/Generic_Character.jpg"
+          alt="Generic Character Image"
           width={200}
           height={200}
         />
