@@ -38,6 +38,11 @@ export default function CharactersList({ characters, genres, eyesColors }) {
     setCurrentPage(1);
   }
 
+  function handlerClear() {
+    setChFiltered(characters);
+    setCurrentPage(1);
+  }
+
   function prevPage() {
     if (currentPage > 1) setCurrentPage((prevPage) => prevPage - 1);
   }
@@ -57,6 +62,7 @@ export default function CharactersList({ characters, genres, eyesColors }) {
         eyesColors={eyesColors}
         handlerGenre={handlerGenre}
         handlerEyes={handlerEyes}
+        handlerClear={handlerClear}
       />
       <div className="grid-cols-4 grid gap-6">
         {chFilteredPag.map((ch) => (

@@ -11,7 +11,10 @@ export default async function CharactersPage() {
   }
 
   const filterG = characters
-    .filter((ch) => ch.gender !== "n/a" && ch.gender !== "unknown")
+    .filter(
+      (ch) =>
+        ch.gender !== "n/a" && ch.gender !== "unknown" && ch.gender !== "none"
+    )
     .map((ch) => ch.gender);
   const filterE = characters
     .filter((ch) => ch.eye_color !== "n/a" && ch.eye_color !== "unknown")
