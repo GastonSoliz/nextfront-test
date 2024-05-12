@@ -1,4 +1,4 @@
-import FilmCharacter from "@/components/CardFilmCharacter/FilmCharacterCard";
+import FilmCharacterList from "@/components/FilmCharacterList/FilmCharacterList";
 import Image from "next/image";
 
 export default async function Film({ params }) {
@@ -6,19 +6,37 @@ export default async function Film({ params }) {
   const infoFilm = await staticData.json();
 
   return (
-    <>
-      <h1>{infoFilm.title}</h1>
-      <Image
-        src="https://static.wikia.nocookie.net/starwars/images/c/cc/Star-wars-logo-new-tall.jpg/revision/latest?cb=20190313021755"
-        alt="Generic Image"
-        width={300}
-        height={300}
-      />
-      <p>{infoFilm.episode_id}</p>
-      <p>{infoFilm.director}.</p>
-      {infoFilm.characters.map((ch) => (
-        <FilmCharacter url={ch} key={ch.name} />
-      ))}
-    </>
+    <div className="h-full bg-neutral-950 flex justify-center py-20">
+      <div className="bg-slate-800 w-9/12 py-4 flex flex-col rounded-md items-center">
+        <p className=" my-6 text-current font-semibold text-lg">
+          Title:
+          <span className="text-xl px-2 text-gray-300">{infoFilm.title}</span>
+        </p>
+        <div className="h-full flex items-center">
+          <Image
+            src="https://static.wikia.nocookie.net/starwars/images/c/cc/Star-wars-logo-new-tall.jpg/revision/latest?cb=20190313021755"
+            alt="Generic Image"
+            width={300}
+            height={300}
+          />
+        </div>
+        <p className="my-6 text-current font-semibold text-lg">
+          Episode:
+          <span className="text-xl px-2 text-gray-300">
+            {infoFilm.episode_id}
+          </span>
+        </p>
+        <p className="my-6 text-current font-semibold text-lg">
+          Director:
+          <span className="text-xl px-2 text-gray-300">
+            {infoFilm.director}
+          </span>
+        </p>
+        <p className="mt-6 mb-2 text-current font-semibold text-lg">
+          Characters:
+        </p>
+        <FilmCharacterList urls={infoFilm.characters} />
+      </div>
+    </div>
   );
 }
