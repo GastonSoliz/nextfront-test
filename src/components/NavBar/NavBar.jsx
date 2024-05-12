@@ -10,19 +10,19 @@ export default function Navbar() {
   ];
   const pathname = usePathname();
 
-  return (
-    <nav>
-      {pathname === "/" ? null : (
-        <ul>
-          {links.map((link) => (
-            <li key={link.name}>
-              <Link href={link.href}>
-                <p>{link.name}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+  return pathname == "/" ? null : (
+    <nav className="bg-neutral-600 py-4 px-6 w-screen fixed">
+      <ul className="flex space-x-6">
+        {links.map((link) => (
+          <li key={link.name}>
+            <Link href={link.href}>
+              <p className=" font-semibold text-xl rounded-md cursor-pointer hover:text-white">
+                {link.name}
+              </p>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }
