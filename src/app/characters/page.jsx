@@ -25,7 +25,7 @@ export default async function CharactersPage() {
   const eyesA = Array.from(new Set(filterE));
 
   return (
-    <div className="h-full bg-neutral-950 px-12 pt-16">
+    <div className="h-full pt-16">
       <CharactersList
         characters={characters}
         genres={genreA}

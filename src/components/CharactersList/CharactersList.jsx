@@ -64,10 +64,12 @@ export default function CharactersList({ characters, genres, eyesColors }) {
         handlerEyes={handlerEyes}
         handlerClear={handlerClear}
       />
-      <div className="grid-cols-4 grid gap-6">
-        {chFilteredPag.map((ch) => (
-          <CharacterCard ch={ch} key={ch.name} />
-        ))}
+      <div className="flex justify-center">
+        <div className="grid-cols-5 grid gap-20">
+          {chFilteredPag.map((ch) => (
+            <CharacterCard ch={ch} key={ch.name} />
+          ))}
+        </div>
       </div>
       <Pagination
         currentPage={currentPage}
