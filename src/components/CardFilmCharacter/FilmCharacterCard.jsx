@@ -1,9 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
+async function getData(url) {
+  try {
+    const staticData = await fetch(url);
+    return await staticData.json();
+  } catch (error) {
+    throw new Error(`Error fetching character: ${error.message}`);
+  }
+}
+
 export default async function FilmCharacter({ url }) {
-  const staticData = await fetch(url);
-  const infoCh = await staticData.json();
+  const infoCh = await getData(url);
 
   const id = url.match(/\/(\d+)\/$/)[1];
 

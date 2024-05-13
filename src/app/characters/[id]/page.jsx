@@ -1,8 +1,17 @@
 import Image from "next/image";
 
+async function getData(id) {
+  try {
+    const staticData = await fetch(`https://swapi.dev/api/people/${id}`);
+
+    return await staticData.json();
+  } catch (error) {
+    throw new Error(`Error fetching character:${error.message}`);
+  }
+}
+
 export default async function Character({ params }) {
-  const staticData = await fetch(`https://swapi.dev/api/people/${params.id}`);
-  const infoCharacter = await staticData.json();
+  const infoCharacter = await getData(params.id);
 
   return (
     <div className="h-screen bg-neutral-950 flex justify-center items-center">

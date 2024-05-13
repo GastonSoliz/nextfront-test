@@ -1,10 +1,20 @@
 import CharactersList from "@/components/CharactersList/CharactersList";
 
+async function getData(page) {
+  try {
+    const staticData = await fetch(
+      `https://swapi.dev/api/people/?page=${page}`
+    );
+    return await staticData.json();
+  } catch (error) {
+    throw new Error(`Error fetching characters: ${error.message}`);
+  }
+}
+
 export default async function CharactersPage() {
   const characters = [];
   for (let i = 1; i <= 9; i++) {
-    const staticData = await fetch(`https://swapi.dev/api/people/?page=${i}`);
-    const data = await staticData.json();
+    const data = await getData(i);
     for (let o = 0; o < data.results.length; o++) {
       characters.push(data.results[o]);
     }

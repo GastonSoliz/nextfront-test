@@ -1,9 +1,17 @@
 import FilmCharacterList from "@/components/FilmCharacterList/FilmCharacterList";
 import Image from "next/image";
 
+async function getData(id) {
+  try {
+    const staticData = await fetch(`https://swapi.dev/api/films/${id}`);
+    return await staticData.json();
+  } catch (error) {
+    throw new Error(`Error fetching films: ${error.message}`);
+  }
+}
+
 export default async function Film({ params }) {
-  const staticData = await fetch(`https://swapi.dev/api/films/${params.id}`);
-  const infoFilm = await staticData.json();
+  const infoFilm = await getData(params.id);
 
   return (
     <div className="h-full bg-neutral-950 flex justify-center py-20">
