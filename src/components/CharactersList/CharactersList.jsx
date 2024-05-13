@@ -18,7 +18,7 @@ export default function CharactersList({ characters, genres, eyesColors }) {
   function handlerGenre(e) {
     const genre = e.target.value;
     if (genre === "") setChFiltered(characters);
-    else setChFiltered(characters.filter((ch) => genre == ch.gender));
+    else setChFiltered(chFiltered.filter((ch) => genre == ch.gender));
     setCurrentPage(1);
   }
 
@@ -27,7 +27,7 @@ export default function CharactersList({ characters, genres, eyesColors }) {
     if (color === "") setChFiltered(characters);
     else
       setChFiltered(
-        characters.filter((ch) => {
+        chFiltered.filter((ch) => {
           if (ch.eye_color !== "n/a" && ch.eye_color !== "unknown") {
             const colors = ch.eye_color.split(",").map((color) => color.trim());
             return colors.includes(color);
